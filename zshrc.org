@@ -1,0 +1,155 @@
+#+TITLE: .zshrc configuration file
+
+* Table of contents :toc:
+- [[#environment-variables][Environment variables]]
+- [[#setting-brew-environment][Setting brew environment]]
+- [[#setting-oh-my-zsh-environment-variables][Setting oh-my-zsh environment variables]]
+- [[#plugins][Plugins]]
+- [[#sourcing-oh-my-zsh-after-all-obligated-staff][Sourcing oh-my-zsh after all obligated staff]]
+- [[#preferred-viewer-and-editor][Preferred viewer and editor]]
+- [[#aliases][Aliases]]
+
+* Environment variables
+- If you come from bash you might have to change your $PATH.
+- Setting path to your oh-my-zsh installation.
+- Setting xterm colors.
+- Setting my language environment.
+#+BEGIN_SRC sh
+export PATH="$HOME/.emacs.d/bin/:$HOME/.local/bin:$HOME/.npm-global/bin:$HOME/development/flutter/bin:$HOME/.cargo/bin:$PATH"
+export ZSH="$HOME/.oh-my-zsh"
+export TERM=xterm-256color
+export LANG=en_US.UTF-8
+#+END_SRC
+
+* Setting brew environment
+#+BEGIN_SRC sh
+eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+#+END_SRC
+
+* Setting oh-my-zsh environment variables
+
+Set name of the theme to load --- if set to "random", it will
+load a random theme each time oh-my-zsh is loaded, in which case,
+to know which specific one was loaded, run: echo $RANDOM_THEME
+See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
+# ZSH_THEME="robbyrussell"
+
+Set list of themes to pick from when loading at random
+Setting this variable when ZSH_THEME=random will cause zsh to load
+a theme from this variable instead of looking in ~/.oh-my-zsh/themes/
+If set to an empty array, this variable will have no effect.
+# ZSH_THEME_RANDOM_CANDIDATES=( "robbyrussell" "agnoster" )
+
+Uncomment the following line to use case-sensitive completion.
+# CASE_SENSITIVE="true"
+
+Uncomment the following line to use hyphen-insensitive completion.
+Case-sensitive completion must be off. _ and - will be interchangeable.
+# HYPHEN_INSENSITIVE="true"
+
+Uncomment the following line to disable bi-weekly auto-update checks.
+# DISABLE_AUTO_UPDATE="true"
+
+Uncomment the following line to automatically update without prompting.
+# DISABLE_UPDATE_PROMPT="true"
+
+Uncomment the following line to change how often to auto-update (in days).
+# export UPDATE_ZSH_DAYS=13
+
+Uncomment the following line if pasting URLs and other text is messed up.
+# DISABLE_MAGIC_FUNCTIONS=true
+
+Uncomment the following line to disable colors in ls.
+# DISABLE_LS_COLORS="true"
+
+Uncomment the following line to disable auto-setting terminal title.
+# DISABLE_AUTO_TITLE="true"
+
+Uncomment the following line to enable command auto-correction.
+# ENABLE_CORRECTION="true"
+
+Uncomment the following line to display red dots whilst waiting for completion.
+# COMPLETION_WAITING_DOTS="true"
+
+Uncomment the following line if you want to disable marking untracked files
+under VCS as dirty. This makes repository status check for large repositories
+much, much faster.
+# DISABLE_UNTRACKED_FILES_DIRTY="true"
+
+Uncomment the following line if you want to change the command execution time
+stamp shown in the history command output.
+You can set one of the optional three formats:
+"mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd"
+or set a custom format using the strftime function format specifications,
+see 'man strftime' for details.
+# HIST_STAMPS="mm/dd/yyyy"
+
+Would you like to use another custom folder than $ZSH/custom?
+# ZSH_CUSTOM=/path/to/new-custom-folder
+
+#+BEGIN_SRC sh
+ZSH_THEME="robbyrussell"
+CASE_SENSITIVE="true"
+#+END_SRC
+
+* Plugins
+Which plugins would you like to load?
+Standard plugins can be found in ~/.oh-my-zsh/plugins/*
+Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
+Example format: plugins=(rails git textmate ruby lighthouse)
+Add wisely, as too many plugins slow down shell startup.
+#+BEGIN_SRC sh
+plugins=(git
+         zsh-syntax-highlighting
+         zsh-autosuggestions
+         vi-mode)
+#+END_SRC
+
+* Sourcing oh-my-zsh after all obligated staff
+#+BEGIN_SRC sh
+source $ZSH/oh-my-zsh.sh
+#+END_SRC
+
+* Preferred viewer and editor
+Preferred editor for local and remote sessions example:
+if [[ -n $SSH_CONNECTION ]]; then
+  export EDITOR='vim'
+else
+  export EDITOR='mvim'
+fi
+#+BEGIN_SRC sh
+export EDITOR='nvim'
+export VIEWER='nvim'
+#+END_SRC
+
+* Aliases
+Set personal aliases, overriding those provided by oh-my-zsh libs,
+plugins, and themes. Aliases can be placed here, though oh-my-zsh
+users are encouraged to define aliases within the ZSH_CUSTOM folder.
+For a full list of active aliases, run `alias`.
+#+BEGIN_SRC sh
+alias zshconfig="$EDITOR ~/.zshrc"
+alias ohmyzsh="$EDITOR ~/.oh-my-zsh"
+alias vimconfig="$EDITOR ~/.vim/vimrc"
+alias kittyconfig="$EDITOR ~/.config/kitty/kitty.conf"
+alias condarc="source ~/condarc"
+alias conda_course="conda activate course"
+alias start_jupyter="jupyter notebook --ip='0.0.0.0' --NotebookApp.token='' --NotebookApp.password=''"
+alias watch_gpu="watch -n0.5 'nvidia-settings -q GPUUtilization -q useddedicatedgpumemory'"
+alias watch_nvidia-smi="watch -n 0.5 nvidia-smi"
+alias docker_run="docker run -p 2222:22 \
+    --runtime=nvidia \
+    --mount type=bind,source=${HOME}/work,destination=/home/ubuntu \
+    --privileged \
+    --device /dev/video0 \
+    -v /dev/snd:/dev/snd \
+    -v /tmp/.X11-unix:/tmp/.X11-unix \
+    -e DISPLAY=$DISPLAY \
+    -e QT_X11_NO_MITSHM=1 \
+    -e PULSE_SERVER=unix:${XDG_RUNTIME_DIR}/pulse/native \
+    -v ${XDG_RUNTIME_DIR}/pulse/native:${XDG_RUNTIME_DIR}/pulse/native \
+    --hostname DOCKER_NVIDIA \
+    -it build_env \
+    /usr/bin/zsh"
+alias docker_build="docker build --build-arg UID=$(id -u) -t tfbuild ."
+#+END_SRC
