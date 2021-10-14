@@ -23,7 +23,7 @@
 #+BEGIN_SRC sh
 export ZSH="$HOME/.oh-my-zsh"
 export LANG=en_US.UTF-8
-if [[ uname == "Linux" ]]; then
+if [[ "$(uname)" == "Linux" ]]; then
   export TERM=xterm-256color
 fi
 export CLICOLOR_FORCE=1
@@ -32,7 +32,7 @@ export CLICOLOR_FORCE=1
 * Setting up brew environment
 
 #+BEGIN_SRC sh
-if [[ uname == "Linux" ]]; then
+if [[ "$(uname)" == "Linux" ]]; then
   export BREW_PREFIX=/home/linuxbrew/.linuxbrew
 elif [[ "$(arch)" == "i386" ]]; then
   export BREW_PREFIX=/usr/local;
@@ -69,7 +69,7 @@ export GEM_HOME=$HOME/.gem
 * Setting up PATH environment variable
 
 #+BEGIN_SRC sh
-if [[ uname == "Linux" ]]; then
+if [[ "$(uname)" == "Linux" ]]; then
   export PATH="$HOME/.emacs.d/bin/:$HOME/.local/bin:$HOME/.npm-global/bin:$HOME/.cargo/bin:$PATH"
 else
   export PATH="$GEM_HOME/bin:/Applications/kdiff3.app/Contents/MacOS/:$PATH"
@@ -84,7 +84,7 @@ export PATH="$HOME/.emacs.d/bin:$PATH"
 * Setting up installed libraries
 
 #+BEGIN_SRC sh
-if [[ uname == "Darwin" ]]; then
+if [[ "$(uname)" == "Darwin" ]]; then
   # icu4c
   add_bin icu4c
   add_sbin icu4c
@@ -257,7 +257,7 @@ alias zshconfig="$EDITOR ~/.zshrc"
 alias ohmyzsh="$EDITOR ~/.oh-my-zsh"
 alias vimconfig="$EDITOR ~/.vim/vimrc"
 
-if [[ uname == "Linux" ]]; then
+if [[ "$(uname)" == "Linux" ]]; then
   alias kittyconfig="$EDITOR ~/.config/kitty/kitty.conf"
   alias condarc="source ~/condarc"
   alias conda_course="conda activate course"
