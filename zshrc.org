@@ -1,81 +1,111 @@
-#+TITLE: .zshrc configuration file
+#+TITLE: zshrc configuration file
 #+PROPERTY: header-args :tangle ~/.zshrc
 
 * Table of contents :toc:
 - [[#environment-variables][Environment variables]]
-- [[#setting-brew-environment][Setting brew environment]]
-- [[#setting-oh-my-zsh-environment-variables][Setting oh-my-zsh environment variables]]
+- [[#setting-up-brew-environment][Setting up brew environment]]
+- [[#setting-up-oh-my-zsh-environment-variables][Setting up oh-my-zsh environment variables]]
 - [[#plugins][Plugins]]
 - [[#sourcing-oh-my-zsh-after-all-obligated-staff][Sourcing oh-my-zsh after all obligated staff]]
 - [[#preferred-viewer-and-editor][Preferred viewer and editor]]
 - [[#aliases][Aliases]]
 
 * Environment variables
+
 - If you come from bash you might have to change your $PATH.
-- Setting path to your oh-my-zsh installation.
-- Setting xterm colors.
-- Setting my language environment.
+- Setting up path to your oh-my-zsh installation.
+- Setting up xterm colors.
+- Setting up my language environment.
+
 #+BEGIN_SRC sh
-export PATH="$HOME/.emacs.d/bin/:$HOME/.local/bin:$HOME/.npm-global/bin:$HOME/development/flutter/bin:$HOME/.cargo/bin:$PATH"
+export PATH="$HOME/.emacs.d/bin/:$HOME/.local/bin:$HOME/.npm-global/bin:$HOME/.cargo/bin:$PATH"
 export ZSH="$HOME/.oh-my-zsh"
 export TERM=xterm-256color
 export LANG=en_US.UTF-8
 #+END_SRC
 
-* Setting brew environment
+* Setting up brew environment
+
 #+BEGIN_SRC sh
 eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 #+END_SRC
 
-* Setting oh-my-zsh environment variables
+* Setting up oh-my-zsh environment variables
 
 Set name of the theme to load --- if set to "random", it will
 load a random theme each time oh-my-zsh is loaded, in which case,
 to know which specific one was loaded, run: echo $RANDOM_THEME
 See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
-#+ ZSH_THEME="robbyrussell"
+#+BEGIN_SRC sh
+ZSH_THEME="robbyrussell"
+#+END_SRC
 
 Set list of themes to pick from when loading at random
 Setting this variable when ZSH_THEME=random will cause zsh to load
 a theme from this variable instead of looking in ~/.oh-my-zsh/themes/
 If set to an empty array, this variable will have no effect.
-#+ ZSH_THEME_RANDOM_CANDIDATES=( "robbyrussell" "agnoster" )
+#+BEGIN_SRC sh
+# ZSH_THEME_RANDOM_CANDIDATES=( "robbyrussell" "agnoster" )
+#+END_SRC
 
 Uncomment the following line to use case-sensitive completion.
-#+ CASE_SENSITIVE="true"
+#+BEGIN_SRC sh
+CASE_SENSITIVE="true"
+#+END_SRC
 
 Uncomment the following line to use hyphen-insensitive completion.
 Case-sensitive completion must be off. _ and - will be interchangeable.
-#+ HYPHEN_INSENSITIVE="true"
+#+BEGIN_SRC sh
+# HYPHEN_INSENSITIVE="true"
+#+END_SRC
 
 Uncomment the following line to disable bi-weekly auto-update checks.
-#+ DISABLE_AUTO_UPDATE="true"
+#+BEGIN_SRC sh
+# DISABLE_AUTO_UPDATE="true"
+#+END_SRC
 
 Uncomment the following line to automatically update without prompting.
-#+ DISABLE_UPDATE_PROMPT="true"
+#+BEGIN_SRC sh
+# DISABLE_UPDATE_PROMPT="true"
+#+END_SRC
 
 Uncomment the following line to change how often to auto-update (in days).
-#+ export UPDATE_ZSH_DAYS=13
+#+BEGIN_SRC sh
+# export UPDATE_ZSH_DAYS=13
+#+END_SRC
 
 Uncomment the following line if pasting URLs and other text is messed up.
-#+ DISABLE_MAGIC_FUNCTIONS=true
+#+BEGIN_SRC sh
+# DISABLE_MAGIC_FUNCTIONS=true
+#+END_SRC
 
 Uncomment the following line to disable colors in ls.
-#+ DISABLE_LS_COLORS="true"
+#+BEGIN_SRC sh
+# DISABLE_LS_COLORS="true"
+#+END_SRC
 
 Uncomment the following line to disable auto-setting terminal title.
-#+ DISABLE_AUTO_TITLE="true"
+#+BEGIN_SRC sh
+# DISABLE_AUTO_TITLE="true"
+#+END_SRC
 
 Uncomment the following line to enable command auto-correction.
-#+ ENABLE_CORRECTION="true"
+#+BEGIN_SRC sh
+# ENABLE_CORRECTION="true"
+#+END_SRC
 
 Uncomment the following line to display red dots whilst waiting for completion.
-#+ COMPLETION_WAITING_DOTS="true"
+
+#+BEGIN_SRC sh
+# COMPLETION_WAITING_DOTS="true"
+#+END_SRC
 
 Uncomment the following line if you want to disable marking untracked files
 under VCS as dirty. This makes repository status check for large repositories
 much, much faster.
-#+ DISABLE_UNTRACKED_FILES_DIRTY="true"
+#+BEGIN_SRC sh
+# DISABLE_UNTRACKED_FILES_DIRTY="true"
+#+END_SRC
 
 Uncomment the following line if you want to change the command execution time
 stamp shown in the history command output.
@@ -83,14 +113,13 @@ You can set one of the optional three formats:
 "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd"
 or set a custom format using the strftime function format specifications,
 see 'man strftime' for details.
-#+ HIST_STAMPS="mm/dd/yyyy"
+#+BEGIN_SRC sh
+# HIST_STAMPS="mm/dd/yyyy"
+#+END_SRC
 
 Would you like to use another custom folder than $ZSH/custom?
-#+ ZSH_CUSTOM=/path/to/new-custom-folder
-
 #+BEGIN_SRC sh
-ZSH_THEME="robbyrussell"
-CASE_SENSITIVE="true"
+# ZSH_CUSTOM=/path/to/new-custom-folder
 #+END_SRC
 
 * Plugins
@@ -116,7 +145,7 @@ Preferred editor for local and remote sessions example:
 if [[ -n $SSH_CONNECTION ]]; then
   export EDITOR='vim'
 else
-  export EDITOR='mvim'
+  export EDITOR='nvim'
 fi
 #+BEGIN_SRC sh
 export EDITOR='nvim'
