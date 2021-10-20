@@ -7,6 +7,7 @@
 - [[#setting-up-gem-home][Setting up gem home]]
 - [[#setting-up-path-environment-variable][Setting up PATH environment variable]]
 - [[#setting-up-installed-libraries][Setting up installed libraries]]
+- [[#setting-other-paths][Setting other paths]]
 - [[#setting-up-oh-my-zsh-environment-variables][Setting up oh-my-zsh environment variables]]
 - [[#plugins][Plugins]]
 - [[#sourcing-oh-my-zsh-after-all-obligated-staff][Sourcing oh-my-zsh after all obligated staff]]
@@ -70,15 +71,12 @@ export GEM_HOME=$HOME/.gem
 
 #+BEGIN_SRC sh
 if [[ "$(uname)" == "Linux" ]]; then
-  export PATH="$HOME/.emacs.d/bin/:$HOME/.local/bin:$HOME/.npm-global/bin:$HOME/.cargo/bin:$PATH"
+  export PATH="$HOME/.local/bin:$HOME/.npm-global/bin:$HOME/.cargo/bin:$PATH"
 else
   export PATH="$GEM_HOME/bin:/Applications/kdiff3.app/Contents/MacOS/:$PATH"
   # gnubin
   export PATH="$BREW_PREFIX/opt/coreutils/libexec/gnubin:$PATH"
 fi
-
-# doom emacs
-export PATH="$HOME/.emacs.d/bin:$PATH"
 #+END_SRC
 
 * Setting up installed libraries
@@ -123,6 +121,18 @@ if [[ "$(uname)" == "Darwin" ]]; then
   add_dev_paths zlib
   add_pkg_path zlib
 fi
+#+END_SRC
+
+* Setting other paths
+#+BEGIN_SRC sh
+# local bin path
+export PATH="$HOME/.local/bin:$PATH"
+
+# doom bin path
+export PATH="$HOME/.emacs.d/bin:$PATH"
+
+# cargo bin path
+export PATH="$HOME/.cargo/bin:$PATH"
 #+END_SRC
 
 * Setting up oh-my-zsh environment variables
