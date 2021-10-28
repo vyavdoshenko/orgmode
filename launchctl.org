@@ -1,0 +1,10 @@
+#+TITLE: launchctl update script
+#+PROPERTY: header-args :tangle ~/.local/bin/update_env.sh
+
+* Setting up my development environment variables to make possible using them via Emacs started from macOS Spotlight.
+#+BEGIN_SRC sh
+launchctl setenv PATH $PATH
+launchctl setenv LDFLAGS $LDFLAGS
+launchctl setenv CPPFLAGS $CPPFLAGS
+launchctl setenv PKG_CONFIG_PATH $PKG_CONFIG_PATH
+#+END_SRC

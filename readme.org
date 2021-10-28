@@ -1,1 +1,9 @@
 #+TITLE: emacs org mode files collection
+
+* zshrc
+This is the zsh configuration file for Linux and macOS (Apple Silicon and Intel) environments.
+
+* launchctl
+This is environment variables update script helper.
+It's useful for UI application to pass your zshrc environment variables to launchctl.
+macOS only.
