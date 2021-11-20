@@ -246,12 +246,16 @@ source $ZSH/oh-my-zsh.sh
 #+END_SRC
 
 * Preferred viewer and editor
-Preferred editor for local and remote sessions example:
-if [[ -n $SSH_CONNECTION ]]; then
-  export EDITOR='vim'
-else
-  export EDITOR='nvim'
-fi
+Preferred editor for local and remote sessions.
+Example:
+#+BEGIN_SRC sh
+#if [[ -n $SSH_CONNECTION ]]; then
+#  export EDITOR='vim'
+#else
+#  export EDITOR='nvim'
+#fi
+#+END_SRC
+
 #+BEGIN_SRC sh
 export EDITOR='nvim'
 export VIEWER='nvim'
