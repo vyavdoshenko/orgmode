@@ -286,7 +286,7 @@ if [[ "$(uname)" == "Linux" ]]; then
       -e PULSE_SERVER=unix:${XDG_RUNTIME_DIR}/pulse/native \
       -v ${XDG_RUNTIME_DIR}/pulse/native:${XDG_RUNTIME_DIR}/pulse/native \
       --hostname DOCKER_NVIDIA \
-      -it build_env \
+      -it tfbuild \
       /usr/bin/zsh"
   alias docker_build="docker build --build-arg UID=$(id -u) -t tfbuild ."
 else
