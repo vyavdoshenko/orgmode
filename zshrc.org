@@ -294,6 +294,7 @@ if [[ "$(uname)" == "Linux" ]]; then
       /usr/bin/zsh"
   alias docker_build="docker build --build-arg UID=$(id -u) -t tfbuild ."
 else
+  alias condarc="source ~/miniforge3/bin/activate"
   alias subl="/Applications/Sublime\ Text.app/Contents/MacOS/sublime_text"
 fi
 #+END_SRC
