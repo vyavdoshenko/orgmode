@@ -271,11 +271,11 @@ alias zshconfig="$EDITOR ~/.zshrc"
 alias ohmyzsh="$EDITOR ~/.oh-my-zsh"
 alias vimconfig="$EDITOR ~/.vim/vimrc"
 
+alias start_jupyter="jupyter notebook --ip='0.0.0.0' --NotebookApp.token='' --NotebookApp.password=''"
+
 if [[ "$(uname)" == "Linux" ]]; then
   alias kittyconfig="$EDITOR ~/.config/kitty/kitty.conf"
   alias condarc="source ~/condarc"
-  alias conda_course="conda activate course"
-  alias start_jupyter="jupyter notebook --ip='0.0.0.0' --NotebookApp.token='' --NotebookApp.password=''"
   alias watch_gpu="watch -n0.5 'nvidia-settings -q GPUUtilization -q useddedicatedgpumemory'"
   alias watch_nvidia-smi="watch -n 0.5 nvidia-smi"
   alias docker_run="docker run -p 2222:22 \
