@@ -133,6 +133,9 @@ export PATH="$HOME/.emacs.d/bin:$PATH"
 
 # cargo bin path
 export PATH="$HOME/.cargo/bin:$PATH"
+
+# flutter bin path
+export PATH="$HOME/development/flutter/bin:$PATH"
 #+END_SRC
 
 * Setting up oh-my-zsh environment variables
