@@ -131,11 +131,14 @@ export PATH="$HOME/.local/bin:$PATH"
 # doom bin path
 export PATH="$HOME/.emacs.d/bin:$PATH"
 
+# flutter bin path
+export PATH="$HOME/development/flutter/bin:$PATH"
+
 # cargo bin path
 export PATH="$HOME/.cargo/bin:$PATH"
 
-# flutter bin path
-export PATH="$HOME/development/flutter/bin:$PATH"
+# solana bin path
+export PATH="$HOME/.local/share/solana/install/active_release/bin:$PATH"
 #+END_SRC
 
 * Setting up oh-my-zsh environment variables
