@@ -79,6 +79,8 @@ else
 fi
 #+END_SRC
 
+#+RESULTS:
+
 * Setting up installed libraries
 
 #+BEGIN_SRC sh
@@ -121,6 +123,13 @@ if [[ "$(uname)" == "Darwin" ]]; then
   add_dev_paths zlib
   add_pkg_path zlib
 fi
+
+if [[ "$(uname)" == "Linux" ]]; then
+  # node@14
+  add_bin node@14
+  add_dev_paths node@14
+fi
+
 #+END_SRC
 
 * Setting other paths
