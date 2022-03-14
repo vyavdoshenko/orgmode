@@ -84,45 +84,6 @@ fi
 * Setting up installed libraries
 
 #+BEGIN_SRC sh
-if [[ "$(uname)" == "Darwin" ]]; then
-  # icu4c
-  add_bin icu4c
-  add_sbin icu4c
-  add_dev_paths icu4c
-  add_pkg_path icu4c
-
-  # tcl-tk
-  add_bin tcl-tk
-
-  # llvm
-  # To use the bundled libc++ please add the following LDFLAGS:
-  # LDFLAGS="-L/usr/local/opt/llvm/lib -Wl,-rpath,/usr/local/opt/llvm/lib"
-  #add_bin llvm
-  #add_dev_paths llvm
-
-  # jpeg_turbo
-  add_bin jpeg-turbo
-  add_dev_paths jpeg-turbo
-  add_pkg_path libjpeg-turbo
-
-  # luajit-openresty
-  add_bin luajit-openresty
-  add_dev_paths luajit-openresty
-  add_pkg_path luajit-openresty
-
-  # libffi
-  add_dev_paths libffi
-  add_pkg_path libffi
-
-  # qt@5
-  add_bin qt@5
-  add_dev_paths qt@5
-  add_pkg_path qt@5
-
-  # zlib
-  add_dev_paths zlib
-  add_pkg_path zlib
-fi
 
 if [[ "$(uname)" == "Linux" ]]; then
   # node@14
@@ -146,8 +107,6 @@ export PATH="$HOME/development/flutter/bin:$PATH"
 # cargo bin path
 export PATH="$HOME/.cargo/bin:$PATH"
 
-# solana bin path
-export PATH="$HOME/.local/share/solana/install/active_release/bin:$PATH"
 #+END_SRC
 
 * Setting up oh-my-zsh environment variables
@@ -250,8 +209,7 @@ Example format: plugins=(rails git textmate ruby lighthouse)
 Add wisely, as too many plugins slow down shell startup.
 #+BEGIN_SRC sh
 plugins=(git
-         zsh-syntax-highlighting
-         zsh-autosuggestions
+         zsh-navigation-tools
          zsh-interactive-cd
          vi-mode)
 #+END_SRC
