@@ -71,7 +71,7 @@ export GEM_HOME=$HOME/.gem
 
 #+BEGIN_SRC sh
 if [[ "$(uname)" == "Linux" ]]; then
-  export PATH="$HOME/.local/bin:$HOME/.npm-global/bin:$HOME/.cargo/bin:$PATH"
+  export PATH="$HOME/.local/bin:$HOME/.npm-global/bin:$PATH"
 else
   export PATH="$GEM_HOME/bin:/Applications/kdiff3.app/Contents/MacOS/:$PATH"
   # gnubin
