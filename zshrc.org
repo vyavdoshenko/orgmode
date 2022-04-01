@@ -73,7 +73,7 @@ export GEM_HOME=$HOME/.gem
 if [[ "$(uname)" == "Linux" ]]; then
   export PATH="$HOME/.local/bin:$HOME/.npm-global/bin:$PATH"
 else
-  export PATH="$GEM_HOME/bin:/Applications/kdiff3.app/Contents/MacOS/:$PATH"
+  export PATH="$GEM_HOME/bin:/Applications/Sublime Merge.app/Contents/SharedSupport/bin:$PATH"
   # gnubin
   export PATH="$BREW_PREFIX/opt/coreutils/libexec/gnubin:$PATH"
   # pip
