@@ -87,9 +87,7 @@ fi
 
 #+BEGIN_SRC sh
 if [[ "$(uname)" == "Darwin" ]]; then
-  add_bin jpeg-turbo
-  add_dev_paths jpeg-turbo
-  add_pkg_path jpeg-turbo
+  add_bin curl
 fi
 
 if [[ "$(uname)" == "Linux" ]]; then
