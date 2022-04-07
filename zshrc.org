@@ -8,6 +8,7 @@
 - [[#setting-up-path-environment-variable][Setting up PATH environment variable]]
 - [[#setting-up-installed-libraries][Setting up installed libraries]]
 - [[#setting-other-paths][Setting other paths]]
+- [[#setting-up-nvm][Setting up nvm]]
 - [[#setting-up-oh-my-zsh-environment-variables][Setting up oh-my-zsh environment variables]]
 - [[#plugins][Plugins]]
 - [[#sourcing-oh-my-zsh-after-all-obligated-staff][Sourcing oh-my-zsh after all obligated staff]]
@@ -112,6 +113,13 @@ export PATH="$HOME/development/flutter/bin:$PATH"
 # cargo bin path
 export PATH="$HOME/.cargo/bin:$PATH"
 
+#+END_SRC
+
+* Setting up nvm
+#+BEGIN_SRC sh
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 #+END_SRC
 
 * Setting up oh-my-zsh environment variables
