@@ -7,6 +7,7 @@
 - [[#setting-up-gem-home][Setting up gem home]]
 - [[#setting-up-path-environment-variable][Setting up PATH environment variable]]
 - [[#setting-up-installed-libraries][Setting up installed libraries]]
+- [[#golang][GoLang]]
 - [[#setting-other-paths][Setting other paths]]
 - [[#setting-up-nvm][Setting up nvm]]
 - [[#setting-up-oh-my-zsh-environment-variables][Setting up oh-my-zsh environment variables]]
@@ -99,6 +100,13 @@ fi
 
 #+END_SRC
 
+* GoLang
+#+BEGIN_SRC sh
+export GOPATH="$HOME/go"
+export GOBIN="$HOME/gobin"
+#+END_SRC
+
+
 * Setting other paths
 #+BEGIN_SRC sh
 # local bin path
@@ -113,6 +121,8 @@ export PATH="$HOME/development/flutter/bin:$PATH"
 # cargo bin path
 export PATH="$HOME/.cargo/bin:$PATH"
 
+# go path
+export PATH="$GOBIN:$PATH"
 #+END_SRC
 
 * Setting up nvm
@@ -121,7 +131,6 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 #+END_SRC
-
 * Setting up oh-my-zsh environment variables
 
 Set name of the theme to load --- if set to "random", it will
