@@ -80,6 +80,8 @@ else
   export PATH="$BREW_PREFIX/opt/coreutils/libexec/gnubin:$PATH"
   # pip
   export PATH="$BREW_PREFIX/opt/python@3.9/Frameworks/Python.framework/Versions/3.9/bin:$PATH"
+  # kdiff3
+  export PATH="/Applications/kdiff3.app/Contents/MacOS/:$PATH"
 fi
 #+END_SRC
 
