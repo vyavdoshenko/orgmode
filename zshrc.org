@@ -76,12 +76,12 @@ if [[ "$(uname)" == "Linux" ]]; then
   export PATH="$HOME/.local/bin:$HOME/.npm-global/bin:$PATH"
 else
   export PATH="$GEM_HOME/bin:/Applications/Sublime Merge.app/Contents/SharedSupport/bin:$PATH"
-  # gnubin
-  export PATH="$BREW_PREFIX/opt/coreutils/libexec/gnubin:$PATH"
   # pip
   export PATH="$BREW_PREFIX/opt/python@3.9/Frameworks/Python.framework/Versions/3.9/bin:$PATH"
   # kdiff3
   export PATH="/Applications/kdiff3.app/Contents/MacOS/:$PATH"
+  # gnubin
+  for d in ${BREW_PREFIX}/opt/*/libexec/gnubin; do export PATH=$d:$PATH; done
 fi
 #+END_SRC
 
@@ -235,7 +235,14 @@ Add wisely, as too many plugins slow down shell startup.
 plugins=(git
          zsh-navigation-tools
          zsh-interactive-cd
-         vi-mode)
+         vi-mode
+         alias-finder
+         command-not-found
+         extract
+         fd
+         history-substring-search
+         ripgrep
+         rust)
 #+END_SRC
 
 * Sourcing oh-my-zsh after all obligated staff
