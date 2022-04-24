@@ -233,16 +233,18 @@ Example format: plugins=(rails git textmate ruby lighthouse)
 Add wisely, as too many plugins slow down shell startup.
 #+BEGIN_SRC sh
 plugins=(git
-         zsh-navigation-tools
          zsh-interactive-cd
          vi-mode
          alias-finder
          command-not-found
          extract
          fd
-         history-substring-search
          ripgrep
-         rust)
+         rust
+         history-substring-search
+         zsh-syntax-highlighting
+         zsh-autosuggestions
+         )
 #+END_SRC
 
 * Sourcing oh-my-zsh after all obligated staff
