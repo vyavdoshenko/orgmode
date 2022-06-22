@@ -307,4 +307,7 @@ else
   alias condarc="source ~/miniforge3/bin/activate"
   alias subl="/Applications/Sublime\ Text.app/Contents/MacOS/sublime_text"
 fi
+
+alias docker_bootstrap="docker container stop \$(docker container ls -aq); docker container rm \$(docker container ls -aq); docker volume rm \$(docker volume ls -q)"
+alias docker_remove_images="docker rmi \$(docker images -q)"
 #+END_SRC
