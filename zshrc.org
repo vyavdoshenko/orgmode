@@ -306,7 +306,6 @@ if [[ "$(uname)" == "Linux" ]]; then
 else
   alias condarc="source ~/miniforge3/bin/activate"
   alias subl="/Applications/Sublime\ Text.app/Contents/MacOS/sublime_text"
-  export NEAR_SANDBOX_BIN_PATH="${HOME}/nearcore/target/debug/neard-sandbox"
 fi
 
 alias docker_bootstrap="docker container stop \$(docker container ls -aq); docker container rm \$(docker container ls -aq); docker volume rm \$(docker volume ls -q)"
