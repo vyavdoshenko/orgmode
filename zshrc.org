@@ -30,6 +30,9 @@ if [[ "$(uname)" == "Linux" ]]; then
   export TERM=xterm-256color
 fi
 export CLICOLOR_FORCE=1
+
+# Using rust build cache
+export RUSTC_WRAPPER=sccache
 #+END_SRC
 
 * Setting up brew environment
