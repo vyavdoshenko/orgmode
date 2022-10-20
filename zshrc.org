@@ -98,6 +98,7 @@ fi
 #+BEGIN_SRC sh
 if [[ "$(uname)" == "Darwin" ]]; then
   add_bin curl
+  add_bin llvm
 fi
 
 if [[ "$(uname)" == "Linux" ]]; then
