@@ -33,7 +33,16 @@ export CLICOLOR_FORCE=1
 
 # Using rust build cache
 export RUSTC_WRAPPER=sccache
+
+# NEAR sandbox setting
+if [[ "$(uname)" == "Darwin" ]]; then
+  if [[ "$(arch)" == "i386" ]]; then
+    export NEAR_SANDBOX_BIN_PATH="/Users/bobik/nearcore/target/debug/neard-sandbox"
+  fi
+fi
 #+END_SRC
+
+#+RESULTS:
 
 * Setting up brew environment
 
@@ -99,6 +108,7 @@ fi
 if [[ "$(uname)" == "Darwin" ]]; then
   add_bin curl
   add_bin llvm
+  add_dev_paths libgccjit
 fi
 
 if [[ "$(uname)" == "Linux" ]]; then
