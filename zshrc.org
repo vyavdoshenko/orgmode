@@ -122,7 +122,7 @@ fi
 
 * GoLang
 #+BEGIN_SRC sh
-#export GOPATH="${HOME}/go"
+export GOPATH="${HOME}/go"
 export GOBIN="${HOME}/gobin"
 #+END_SRC
 
