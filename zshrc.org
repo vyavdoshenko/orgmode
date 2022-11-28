@@ -326,5 +326,9 @@ alias docker_remove_images="docker rmi \$(docker images -q)"
 
 * Conda
  #+BEGIN_SRC sh
-source ${HOME}/condarc
+if [[ "$(uname)" == "Linux" ]]; then
+  source ${HOME}/condarc
+elif [[ "$(arch)" != "i386" ]]; then
+  source ${HOME}/condarc
+fi
 #+END_SRC
