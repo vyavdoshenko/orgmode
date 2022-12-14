@@ -109,6 +109,7 @@ fi
 if [[ "$(uname)" == "Darwin" ]]; then
   add_bin curl
   add_bin llvm
+  add_bin ffmpeg@4
   add_dev_paths libgccjit
 fi
 
