@@ -15,7 +15,6 @@
 - [[#sourcing-oh-my-zsh-after-all-obligated-staff][Sourcing oh-my-zsh after all obligated staff]]
 - [[#preferred-viewer-and-editor][Preferred viewer and editor]]
 - [[#aliases][Aliases]]
-- [[#conda][Conda]]
 
 * Environment variables
 
@@ -325,11 +324,3 @@ alias docker_bootstrap="docker container stop \$(docker container ls -aq); docke
 alias docker_remove_images="docker rmi \$(docker images -q)"
 #+END_SRC
 
-* Conda
- #+BEGIN_SRC sh
-if [[ "$(uname)" == "Linux" ]]; then
-  source ${HOME}/condarc
-elif [[ "$(arch)" != "i386" ]]; then
-  source ${HOME}/condarc
-fi
-#+END_SRC
