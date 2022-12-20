@@ -110,6 +110,13 @@ if [[ "$(uname)" == "Darwin" ]]; then
   add_bin llvm
   add_bin ffmpeg@4
   add_dev_paths libgccjit
+
+  export LDFLAGS="-L${BREW_PREFIX}/opt/llvm/lib -Wl,-rpath,${BREW_PREFIX}/opt/llvm/lib ${LDFLAGS}"
+  export CPPFLAGS="-I${BREW_PREFIX}/opt/llvm/include -I${BREW_PREFIX}/opt/llvm/include/c++/v1/ ${CPPFLAGS}"
+
+  export CC=${BREW_PREFIX}/opt/llvm/bin/clang
+  export CXX=${CC}++
+  export AR=${BREW_PREFIX}/opt/llvm/bin/llvm-ar
 fi
 
 if [[ "$(uname)" == "Linux" ]]; then
