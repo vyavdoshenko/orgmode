@@ -327,6 +327,8 @@ if [[ "$(uname)" == "Linux" ]]; then
   alias docker_build="docker build --build-arg UID=$(id -u) -t tfbuild ."
 fi
 
+source ${HOME}/condarc
+
 alias pip=pip3
 alias docker_bootstrap="docker container stop \$(docker container ls -aq); docker container rm \$(docker container ls -aq); docker volume rm \$(docker volume ls -q)"
 alias docker_remove_images="docker rmi \$(docker images -q)"
