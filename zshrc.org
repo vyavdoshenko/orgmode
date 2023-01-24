@@ -15,6 +15,7 @@
 - [[#sourcing-oh-my-zsh-after-all-obligated-staff][Sourcing oh-my-zsh after all obligated staff]]
 - [[#preferred-viewer-and-editor][Preferred viewer and editor]]
 - [[#aliases][Aliases]]
+- [[#iterm2-titles][iTerm2 titles]]
 
 * Environment variables
 
@@ -334,3 +335,11 @@ alias docker_bootstrap="docker container stop \$(docker container ls -aq); docke
 alias docker_remove_images="docker rmi \$(docker images -q)"
 #+END_SRC
 
+* iTerm2 titles
+#+BEGIN_SRC sh
+DISABLE_AUTO_TITLE="true"
+tab_title() {
+  echo -ne "\e]1;$(arch)\a"
+}
+add-zsh-hook precmd tab_title
+#+END_SRC
