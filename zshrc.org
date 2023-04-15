@@ -142,7 +142,12 @@ export GOBIN="${HOME}/gobin"
 export PATH="${HOME}/.local/bin:${PATH}"
 
 # doom bin path
-export PATH="${HOME}/.emacs.d/bin:${PATH}"
+
+if [[ "$(uname)" == "Linux" ]]; then
+  export PATH="${HOME}/.config/emacs/bin:${PATH}"
+else
+  export PATH="${HOME}/.emacs.d/bin:${PATH}"
+fi
 
 # flutter bin path
 export PATH="${HOME}/development/flutter/bin:${PATH}"
