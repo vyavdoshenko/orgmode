@@ -86,7 +86,7 @@ export GEM_HOME=${HOME}/.gem
 
 #+BEGIN_SRC sh
 if [[ "$(uname)" == "Linux" ]]; then
-  export PATH="${HOME}/.local/bin:${HOME}/.npm-global/bin:${PATH}"
+  export PATH="${HOME}/.local/share/coursier/bin/${HOME}/.local/bin:${HOME}/.npm-global/bin:${PATH}"
 else
   export PATH="/Applications/Sublime Merge.app/Contents/SharedSupport/bin:${PATH}"
   export PATH="/Applications/Sublime Text.app/Contents/SharedSupport/bin:${PATH}"
