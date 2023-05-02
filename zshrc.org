@@ -99,6 +99,8 @@ else
   export PATH="${USER_BASE_BIN}:${PATH}"
   # gnubin
   for d in ${BREW_PREFIX}/opt/*/libexec/gnubin; do export PATH=$d:${PATH}; done
+
+  export PATH="${HOME}/Library/Application Support/Coursier/bin:${PATH}"
 fi
 #+END_SRC
 
