@@ -87,6 +87,9 @@ export GEM_HOME=${HOME}/.gem
 #+BEGIN_SRC sh
 if [[ "$(uname)" == "Linux" ]]; then
   export PATH="${HOME}/.local/share/coursier/bin:${HOME}/.local/bin:${HOME}/.npm-global/bin:${PATH}"
+  export HADOOP_HOME="${HOME}/hadoop/"
+  export HADOOP_COMMON_LIB_NATIVE_DIR="${HOME}/hadoop/lib/"
+  export HADOOP_OPTS="$HADOOP_OPTS -Djava.library.path=${HOME}/hadoop/lib/"
   source ${HOME}/.zprofile
 else
   export PATH="/Applications/Sublime Merge.app/Contents/SharedSupport/bin:${PATH}"
