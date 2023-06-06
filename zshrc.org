@@ -4,12 +4,9 @@
 * Table of contents :toc:
 - [[#environment-variables][Environment variables]]
 - [[#setting-up-brew-environment][Setting up brew environment]]
-- [[#setting-up-gem-home][Setting up gem home]]
 - [[#setting-up-path-environment-variable][Setting up PATH environment variable]]
 - [[#setting-up-installed-libraries][Setting up installed libraries]]
-- [[#golang][GoLang]]
 - [[#setting-other-paths][Setting other paths]]
-- [[#setting-up-nvm][Setting up nvm]]
 - [[#setting-up-oh-my-zsh-environment-variables][Setting up oh-my-zsh environment variables]]
 - [[#plugins][Plugins]]
 - [[#sourcing-oh-my-zsh-after-all-obligated-staff][Sourcing oh-my-zsh after all obligated staff]]
@@ -31,25 +28,13 @@ if [[ "$(uname)" == "Linux" ]]; then
   export TERM=xterm-256color
 fi
 export CLICOLOR_FORCE=1
-
-# Using rust build cache
-export RUSTC_WRAPPER=sccache
-
-# NEAR sandbox setting
-if [[ "$(uname)" == "Darwin" ]]; then
-  if [[ "$(arch)" == "i386" ]]; then
-    export NEAR_SANDBOX_BIN_PATH="/Users/bobik/nearcore/target/debug/neard-sandbox"
-  fi
-fi
 #+END_SRC
-
-#+RESULTS:
 
 * Setting up brew environment
 
 #+BEGIN_SRC sh
 if [[ "$(uname)" == "Linux" ]]; then
-  export BREW_PREFIX=/home/linuxbrew/.linuxbrew
+#  export BREW_PREFIX=/home/linuxbrew/.linuxbrew
 elif [[ "$(arch)" == "i386" ]]; then
   export BREW_PREFIX=/usr/local;
 else
@@ -73,25 +58,20 @@ function add_pkg_path {
   export PKG_CONFIG_PATH="${BREW_PREFIX}/opt/$1/lib/pkgconfig:${PKG_CONFIG_PATH}"
 }
 
-eval "$(${BREW_PREFIX}/bin/brew shellenv)"
-#+END_SRC
-
-* Setting up gem home
-
-#+BEGIN_SRC sh
-export GEM_HOME=${HOME}/.gem
+if [[ "$(uname)" == "Darwin" ]]; then
+  eval "$(${BREW_PREFIX}/bin/brew shellenv)"
+fi
 #+END_SRC
 
 * Setting up PATH environment variable
 
 #+BEGIN_SRC sh
 if [[ "$(uname)" == "Linux" ]]; then
-  export PATH="${HOME}/.local/bin:${HOME}/.npm-global/bin:${PATH}"
+  export PATH="${HOME}/.local/bin:${PATH}"
   source ${HOME}/.zprofile
 else
   export PATH="/Applications/Sublime Merge.app/Contents/SharedSupport/bin:${PATH}"
   export PATH="/Applications/Sublime Text.app/Contents/SharedSupport/bin:${PATH}"
-  export PATH="${GEM_HOME}/bin:${PATH}"
   # pip
   export PATH="${BREW_PREFIX}/opt/python@3/Frameworks/Python.framework/Versions/Current/bin:${PATH}"
   # python3 userbase
@@ -103,8 +83,6 @@ else
   export PATH="${HOME}/Library/Application Support/Coursier/bin:${PATH}"
 fi
 #+END_SRC
-
-#+RESULTS:
 
 * Setting up installed libraries
 
@@ -124,20 +102,7 @@ if [[ "$(uname)" == "Darwin" ]]; then
   export AR=${BREW_PREFIX}/opt/llvm/bin/llvm-ar
 fi
 
-if [[ "$(uname)" == "Linux" ]]; then
-  # node@14
-  add_bin node@14
-  add_dev_paths node@14
-fi
-
 #+END_SRC
-
-* GoLang
-#+BEGIN_SRC sh
-export GOPATH="${HOME}/go"
-export GOBIN="${HOME}/gobin"
-#+END_SRC
-
 
 * Setting other paths
 #+BEGIN_SRC sh
@@ -145,29 +110,13 @@ export GOBIN="${HOME}/gobin"
 export PATH="${HOME}/.local/bin:${PATH}"
 
 # doom bin path
-
 if [[ "$(uname)" == "Linux" ]]; then
   export PATH="${HOME}/.config/emacs/bin:${PATH}"
 else
   export PATH="${HOME}/.emacs.d/bin:${PATH}"
 fi
-
-# flutter bin path
-export PATH="${HOME}/development/flutter/bin:${PATH}"
-
-# cargo bin path
-export PATH="${HOME}/.cargo/bin:${PATH}"
-
-# go path
-export PATH="${GOBIN}:${PATH}"
 #+END_SRC
 
-* Setting up nvm
-#+BEGIN_SRC sh
-export NVM_DIR="${HOME}/.nvm"
-[ -s "${NVM_DIR}/nvm.sh" ] && \. "${NVM_DIR}/nvm.sh"  # This loads nvm
-[ -s "${NVM_DIR}/bash_completion" ] && \. "${NVM_DIR}/bash_completion"  # This loads nvm bash_completion
-#+END_SRC
 * Setting up oh-my-zsh environment variables
 
 Set name of the theme to load --- if set to "random", it will
@@ -288,16 +237,6 @@ source ${ZSH}/oh-my-zsh.sh
 #+END_SRC
 
 * Preferred viewer and editor
-Preferred editor for local and remote sessions.
-Example:
-#+BEGIN_SRC sh
-#if [[ -n ${SSH_CONNECTION} ]]; then
-#  export EDITOR='vim'
-#else
-#  export EDITOR='nvim'
-#fi
-#+END_SRC
-
 #+BEGIN_SRC sh
 export EDITOR='nvim'
 export VIEWER='nvim'
@@ -312,8 +251,6 @@ For a full list of active aliases, run `alias`.
 alias zshconfig="${EDITOR} ~/.zshrc"
 alias ohmyzsh="${EDITOR} ~/.oh-my-zsh"
 alias vimconfig="${EDITOR} ~/.vim/vimrc"
-
-alias start_jupyter="jupyter notebook --ip='0.0.0.0' --NotebookApp.token='' --NotebookApp.password=''"
 
 if [[ "$(uname)" == "Linux" ]]; then
   alias kittyconfig="${EDITOR} ~/.config/kitty/kitty.conf"
