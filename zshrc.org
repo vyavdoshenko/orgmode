@@ -34,7 +34,7 @@ export CLICOLOR_FORCE=1
 
 #+BEGIN_SRC sh
 if [[ "$(uname)" == "Linux" ]]; then
-#  export BREW_PREFIX=/home/linuxbrew/.linuxbrew
+  export BREW_PREFIX=/home/linuxbrew/.linuxbrew
 elif [[ "$(arch)" == "i386" ]]; then
   export BREW_PREFIX=/usr/local;
 else
@@ -58,16 +58,19 @@ function add_pkg_path {
   export PKG_CONFIG_PATH="${BREW_PREFIX}/opt/$1/lib/pkgconfig:${PKG_CONFIG_PATH}"
 }
 
-if [[ "$(uname)" == "Darwin" ]]; then
-  eval "$(${BREW_PREFIX}/bin/brew shellenv)"
-fi
+eval "$(${BREW_PREFIX}/bin/brew shellenv)"
 #+END_SRC
+
+#+RESULTS:
 
 * Setting up PATH environment variable
 
 #+BEGIN_SRC sh
 if [[ "$(uname)" == "Linux" ]]; then
   export PATH="${HOME}/.local/bin:${PATH}"
+  export CPLUS_INCLUDE_PATH="${HOME}/.local/include:${CPLUS_INCLUDE_PATH}"
+  export C_INCLUDE_PATH="${HOME}/.local/include:${C_INCLUDE_PATH}"
+
   source ${HOME}/.zprofile
 else
   export PATH="/Applications/Sublime Merge.app/Contents/SharedSupport/bin:${PATH}"
