@@ -92,7 +92,7 @@ fi
 #+BEGIN_SRC sh
 if [[ "$(uname)" == "Darwin" ]]; then
   add_bin curl
-  add_bin llvm
+#  add_bin llvm
   add_bin ffmpeg@4
   add_bin qt5
   add_dev_paths libgccjit
@@ -104,8 +104,9 @@ if [[ "$(uname)" == "Darwin" ]]; then
   export CXX=${CC}++
   export AR=${BREW_PREFIX}/opt/llvm/bin/llvm-ar
 fi
-
 #+END_SRC
+
+#+RESULTS:
 
 * Setting other paths
 #+BEGIN_SRC sh
@@ -266,6 +267,10 @@ source ${HOME}/condarc
 alias pip=pip3
 alias docker_bootstrap="docker container stop \$(docker container ls -aq); docker container rm \$(docker container ls -aq); docker volume rm \$(docker volume ls -q)"
 alias docker_remove_images="docker rmi \$(docker images -q)"
+
+alias docker_builder_build="docker build --build-arg UID=\$(id -u) -t builder ."
+alias docker_builder_start="docker stop builder-container && docker rm builder-container && docker run --user builder --mount type=bind,source=\${HOME}/veego,destination=/home/builder/veego -it --name builder-container builder /usr/bin/zsh"
+
 #+END_SRC
 
 * iTerm2 titles
