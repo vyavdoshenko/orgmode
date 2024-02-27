@@ -252,6 +252,7 @@ For a full list of active aliases, run `alias`.
 alias zshconfig="${EDITOR} ~/.zshrc"
 alias ohmyzsh="${EDITOR} ~/.oh-my-zsh"
 alias vimconfig="${EDITOR} ~/.vim/vimrc"
+alias ls="exa"
 
 if [[ "$(uname)" == "Linux" ]]; then
   alias kittyconfig="${EDITOR} ~/.config/kitty/kitty.conf"
