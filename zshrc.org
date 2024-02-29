@@ -85,6 +85,9 @@ else
 
   export PATH="${HOME}/Library/Application Support/Coursier/bin:${PATH}"
 fi
+
+# Setting environment for Miranda CRM
+export PYTHONPATH="${PYTHONPATH}:${HOME}/MirandaCRM/"
 #+END_SRC
 
 * Setting up installed libraries
