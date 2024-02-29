@@ -88,7 +88,6 @@ fi
 
 # Setting environment for Miranda CRM
 export PYTHONPATH="${PYTHONPATH}:${HOME}/MirandaCRM/"
-export BOT_TOKEN=6412358150:AAFtespFiQKn31ZxT1Hp76nuiEAEm3Uln9A
 #+END_SRC
 
 * Setting up installed libraries
