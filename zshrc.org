@@ -13,6 +13,7 @@
 - [[#preferred-viewer-and-editor][Preferred viewer and editor]]
 - [[#aliases][Aliases]]
 - [[#iterm2-titles][iTerm2 titles]]
+- [[#nvm][NVM]]
 
 * Environment variables
 
@@ -282,4 +283,13 @@ tab_title() {
   echo -ne "\e]1;$(arch)\a"
 }
 add-zsh-hook precmd tab_title
+#+END_SRC
+
+* NVM
+#+BEGIN_SRC sh
+if [[ "$(uname)" == "Linux" ]]; then
+  export NVM_DIR="$HOME/.nvm"
+  [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+  [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+fi
 #+END_SRC
