@@ -14,6 +14,7 @@
 - [[#aliases][Aliases]]
 - [[#iterm2-titles][iTerm2 titles]]
 - [[#nvm][NVM]]
+- [[#rust][Rust]]
 
 * Environment variables
 
@@ -293,3 +294,8 @@ if [[ "$(uname)" == "Linux" ]]; then
   [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 fi
 #+END_SRC
+
+* Rust
+#+BEGIN_SRC sh
+source $HOME/.cargo/env
+#+END_SRC sh
