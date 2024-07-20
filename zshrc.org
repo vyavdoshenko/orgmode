@@ -265,7 +265,8 @@ if [[ "$(uname)" == "Linux" ]]; then
   alias watch_nvidia-smi="watch -n 0.5 nvidia-smi"
 fi
 
-source ${HOME}/condarc
+#source ${HOME}/condarc
+#source ${HOME}/radiocondarc
 
 alias pip=pip3
 alias docker_bootstrap="docker container stop \$(docker container ls -aq); docker container rm \$(docker container ls -aq); docker volume rm \$(docker volume ls -q)"
