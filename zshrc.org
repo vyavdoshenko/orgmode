@@ -273,7 +273,7 @@ alias docker_bootstrap="docker container stop \$(docker container ls -aq); docke
 alias docker_remove_images="docker rmi \$(docker images -q)"
 
 alias builder_build="docker build --build-arg UID=\$(id -u) -t builder ."
-alias builder_start="docker stop builder-container && docker rm builder-container && docker run --user builder --mount type=bind,source=\${HOME}/dragonfly,destination=/home/builder/dargonfly -it --name builder-container builder /usr/bin/zsh"
+alias builder_start="docker stop builder-container && docker rm builder-container && docker run --user builder --mount type=bind,source=\${HOME}/dragonfly,destination=/home/builder/dragonfly -it --name builder-container builder /usr/bin/zsh"
 alias builder_first_start="docker run --user builder --mount type=bind,source=\${HOME}/dragonfly,destination=/home/builder/dragonfly -it --name builder-container builder /usr/bin/zsh"
 
 #+END_SRC
