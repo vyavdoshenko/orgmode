@@ -256,7 +256,7 @@ For a full list of active aliases, run `alias`.
 #+BEGIN_SRC sh
 alias zshconfig="${EDITOR} ~/.zshrc"
 alias ohmyzsh="${EDITOR} ~/.oh-my-zsh"
-alias ls="exa"
+alias ls="eza"
 alias vi="nvim"
 
 if [[ "$(uname)" == "Linux" ]]; then
