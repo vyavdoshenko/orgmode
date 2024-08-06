@@ -229,8 +229,6 @@ plugins=(zsh-interactive-cd
          alias-finder
          command-not-found
          extract
-         fd
-         ripgrep
          rust
          history-substring-search
          zsh-syntax-highlighting
