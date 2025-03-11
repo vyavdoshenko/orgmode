@@ -271,7 +271,7 @@ alias pip=pip3
 alias docker_bootstrap="docker container stop \$(docker container ls -aq); docker container rm \$(docker container ls -aq); docker volume rm \$(docker volume ls -q)"
 alias docker_remove_images="docker rmi \$(docker images -q)"
 
-builder_build() {
+build() {
   # Check if the image tag is provided
   if [ -z "$1" ]; then
     echo "❌ Error: You must specify the image tag!"
@@ -285,7 +285,7 @@ builder_build() {
   docker build --build-arg UID=$(id -u) -t "$tag" .
 }
 
-builder_run() {
+run() {
   # Check if the image name is provided
   if [ -z "$1" ]; then
     echo "❌ Error: You must specify the image name!"
