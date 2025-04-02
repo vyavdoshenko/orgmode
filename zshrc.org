@@ -273,6 +273,8 @@ alias docker_bootstrap="docker container stop \$(docker container ls -aq); docke
 alias docker_remove_images="docker rmi \$(docker images -q)"
 
 alias bastion="gcloud compute ssh --zone \"us-central1-b\" \"bastion-vm\" --project \"dragonflydb\""
+alias dfprod="dfcloud admin --env prod"
+alias dfdev="dfcloud admin --env dev"
 
 build() {
   # Check if the image tag is provided
