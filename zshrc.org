@@ -309,7 +309,8 @@ run() {
 
   # Stop and remove the container if it already exists
   if [ "$(docker ps -a -q -f name=${container_name})" ]; then
-    docker stop "${container_name}" && docker rm "${container_name}"
+    docker stop "${container_name}" &> /dev/null
+    docker rm "${container_name}" &> /dev/null
   fi
 
   # Run the Docker container with the specified configurations
