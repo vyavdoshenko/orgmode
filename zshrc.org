@@ -293,7 +293,7 @@ build() {
   local tag="$1"
 
   # Build the Docker image with the provided tag and user ID
-  docker build --build-arg UID=$(id -u) -t "$tag" .
+  docker build --build-arg UID=$(id -u) --build-arg GID=$(id -g) -t "$tag" .
 }
 
 run() {
