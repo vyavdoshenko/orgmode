@@ -33,8 +33,6 @@ export GPG_TTY=$(tty)
 
 export LANG=en_US.UTF-8
 export LC_ALL=en_US.utf8
-#export LANG=uk_UA.utf8
-#export LC_ALL=uk_UA.utf8
 #+END_SRC
 
 * Setting up brew environment
@@ -74,7 +72,6 @@ eval "$(${BREW_PREFIX}/bin/brew shellenv)"
 
 #+BEGIN_SRC sh
 if [[ "$(uname)" == "Linux" ]]; then
-  export PATH="${HOME}/.local/bin:${PATH}"
   export CPLUS_INCLUDE_PATH="${HOME}/.local/include:${CPLUS_INCLUDE_PATH}"
   export C_INCLUDE_PATH="${HOME}/.local/include:${C_INCLUDE_PATH}"
 
@@ -92,9 +89,6 @@ else
 
   export PATH="${HOME}/Library/Application Support/Coursier/bin:${PATH}"
 fi
-
-# Setting environment for Miranda CRM
-export PYTHONPATH="${PYTHONPATH}:${HOME}/MirandaCRM/"
 #+END_SRC
 
 * Setting up installed libraries
@@ -327,6 +321,7 @@ run() {
     --mount type=bind,source="${HOME}/remote/.config",destination="/home/builder/.config" \
     --mount type=bind,source="${HOME}/.ssh",destination="/home/builder/.ssh",readonly \
     --mount type=bind,source="${HOME}/.gitconfig",destination="/home/builder/.gitconfig",readonly \
+    -v /var/run/docker.sock:/var/run/docker.sock \
     --privileged \
     -it --name "${container_name}" "${image_name}" /usr/bin/zsh
 }
