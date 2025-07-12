@@ -31,8 +31,13 @@ fi
 export CLICOLOR_FORCE=1
 export GPG_TTY=$(tty)
 
-export LANG=en_US.UTF-8
-export LC_ALL=en_US.utf8
+if [[ "$(uname)" == "Linux" ]]; then
+  export LANG=en_US.utf8
+  export LC_ALL=en_US.utf8
+else
+  export LANG=en_US.UTF-8
+  export LC_ALL=en_US.UTF-8
+fi
 #+END_SRC
 
 * Setting up brew environment
@@ -87,7 +92,7 @@ else
   # gnubin
   for d in ${BREW_PREFIX}/opt/*/libexec/gnubin; do export PATH=$d:${PATH}; done
 
-  export PATH="${HOME}/Library/Application Support/Coursier/bin:${PATH}"
+  export PATH="${HOME}/flutter/bin:${PATH}"
 fi
 #+END_SRC
 
