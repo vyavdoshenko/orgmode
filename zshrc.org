@@ -93,6 +93,9 @@ else
   for d in ${BREW_PREFIX}/opt/*/libexec/gnubin; do export PATH=$d:${PATH}; done
 
   export PATH="${HOME}/flutter/bin:${PATH}"
+
+  export GEM_HOME=${HOME}/.gem
+  export PATH="${GEM_HOME}/bin:${PATH}"
 fi
 #+END_SRC
 
@@ -103,9 +106,14 @@ if [[ "$(uname)" == "Darwin" ]]; then
   add_bin curl
   add_bin ffmpeg@4
   add_bin qt5
+
   add_dev_paths libgccjit
+
   add_bin bison
   add_dev_paths bison
+
+  add_bin ruby
+  add_dev_paths ruby
 
   export LDFLAGS="-L${BREW_PREFIX}/opt/llvm/lib -Wl,-rpath,${BREW_PREFIX}/opt/llvm/lib ${LDFLAGS}"
   export CPPFLAGS="-I${BREW_PREFIX}/opt/llvm/include -I${BREW_PREFIX}/opt/llvm/include/c++/v1/ ${CPPFLAGS}"
