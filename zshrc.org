@@ -90,7 +90,7 @@ else
   USER_BASE_BIN=$(python3 -m site --user-base)/bin
   export PATH="${USER_BASE_BIN}:${PATH}"
   # gnubin
-  for d in ${BREW_PREFIX}/opt/*/libexec/gnubin; do export PATH=$d:${PATH}; done
+  #for d in ${BREW_PREFIX}/opt/*/libexec/gnubin; do export PATH=$d:${PATH}; done
 
   export PATH="${HOME}/flutter/bin:${PATH}"
 
