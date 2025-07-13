@@ -104,23 +104,9 @@ fi
 #+BEGIN_SRC sh
 if [[ "$(uname)" == "Darwin" ]]; then
   add_bin curl
-  add_bin ffmpeg@4
-  add_bin qt5
-
-  add_dev_paths libgccjit
-
-  add_bin bison
-  add_dev_paths bison
 
   add_bin ruby
   add_dev_paths ruby
-
-  export LDFLAGS="-L${BREW_PREFIX}/opt/llvm/lib -Wl,-rpath,${BREW_PREFIX}/opt/llvm/lib ${LDFLAGS}"
-  export CPPFLAGS="-I${BREW_PREFIX}/opt/llvm/include -I${BREW_PREFIX}/opt/llvm/include/c++/v1/ ${CPPFLAGS}"
-
-  export CC=${BREW_PREFIX}/opt/llvm/bin/clang
-  export CXX=${CC}++
-  export AR=${BREW_PREFIX}/opt/llvm/bin/llvm-ar
 fi
 #+END_SRC
 
@@ -274,12 +260,9 @@ alias vi="nvim"
 
 if [[ "$(uname)" == "Linux" ]]; then
   alias kittyconfig="${EDITOR} ~/.config/kitty/kitty.conf"
-  alias watch_gpu="watch -n0.5 'nvidia-settings -q GPUUtilization -q useddedicatedgpumemory'"
-  alias watch_nvidia-smi="watch -n 0.5 nvidia-smi"
+  alias watch-gpu="watch -n0.5 'nvidia-settings -q GPUUtilization -q useddedicatedgpumemory'"
+  alias watch-nvidia-smi="watch -n 0.5 nvidia-smi"
 fi
-
-#source ${HOME}/condarc
-#source ${HOME}/radiocondarc
 
 alias pip=pip3
 alias docker_bootstrap="docker container stop \$(docker container ls -aq); docker container rm \$(docker container ls -aq); docker volume rm \$(docker volume ls -q)"
