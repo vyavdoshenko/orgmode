@@ -270,7 +270,7 @@ alias docker_remove_images="docker rmi \$(docker images -q)"
 
 alias bastion="gcloud compute ssh --zone \"us-central1-b\" \"bastion-vm\" --project \"dragonflydb\""
 alias dfprod="dfadmin --env prod"
-alias dfdev="dfadmin --env dev"
+alias dfdev="dfadmin --env staging"
 
 build() {
   # Check if the image tag is provided
