@@ -312,9 +312,10 @@ run() {
   # Run the Docker container with the specified configurations
   docker run --user builder "$@" \
     --mount type=bind,source="${project_dir}",destination="/home/builder/${image_name}" \
-    --mount type=bind,source="${HOME}/remote/.cursor-server",destination="/home/builder/.cursor-server" \
+    --mount type=bind,source="${HOME}/remote/.vscode-server",destination="/home/builder/.vscode-server" \
     --mount type=bind,source="${HOME}/remote/.cache",destination="/home/builder/.cache" \
     --mount type=bind,source="${HOME}/remote/.config",destination="/home/builder/.config" \
+    --mount type=bind,source="${HOME}/remote/.claude.json",destination="/home/builder/.claude.json" \
     --mount type=bind,source="${HOME}/.ssh",destination="/home/builder/.ssh",readonly \
     --mount type=bind,source="${HOME}/.gitconfig",destination="/home/builder/.gitconfig",readonly \
     -v /var/run/docker.sock:/var/run/docker.sock \
