@@ -82,6 +82,7 @@ if [[ "$(uname)" == "Linux" ]]; then
 
   source ${HOME}/.zprofile
 else
+  export SDKROOT=/Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk
   export PATH="/Applications/Sublime Merge.app/Contents/SharedSupport/bin:${PATH}"
   export PATH="/Applications/Sublime Text.app/Contents/SharedSupport/bin:${PATH}"
   # pip
@@ -96,6 +97,8 @@ else
 
   export GEM_HOME=${HOME}/.gem
   export PATH="${GEM_HOME}/bin:${PATH}"
+
+  add_bin bison
 fi
 #+END_SRC
 
