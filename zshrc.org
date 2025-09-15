@@ -265,6 +265,7 @@ if [[ "$(uname)" == "Linux" ]]; then
   alias kittyconfig="${EDITOR} ~/.config/kitty/kitty.conf"
   alias watch-gpu="watch -n0.5 'nvidia-settings -q GPUUtilization -q useddedicatedgpumemory'"
   alias watch-nvidia-smi="watch -n 0.5 nvidia-smi"
+  alias emacs-remote="emacs --eval '(set-face-attribute (quote default) nil :height 150)'"
 fi
 
 alias pip=pip3
