@@ -330,6 +330,26 @@ run() {
     -it --name "${container_name}" "${image_name}" /usr/bin/zsh
 }
 
+restart() {
+  # Check if the image name is provided
+  if [ -z "$1" ]; then
+    echo "❌ Error: You must specify the image name!"
+    echo "👉 Usage example: restart my_project [container_name] [additional_docker_params]"
+    return 1
+  fi
+
+  local image_name="$1"
+  local container_name="${2:-${image_name}}-container"
+
+  # Remove the container if it already exists
+  if [ "$(docker ps -a -q -f name=${container_name})" ]; then
+    docker rm -f "${container_name}"
+  fi
+
+  # Delegate actual start to run with the same arguments
+  run "$@"
+}
+
 attach() {
   # Check if the image name is provided
   if [ -z "$1" ]; then
